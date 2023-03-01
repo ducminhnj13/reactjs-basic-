@@ -9,7 +9,7 @@ class MyComponent extends React.Component{
         address:'ha noi'
     }
 
-    
+
 
     handleOnChangeName = (event) => {
         this.setState({
@@ -31,6 +31,7 @@ class MyComponent extends React.Component{
                     onChange={(event)=> this.handleOnChangeName(event)}
                 >
                 </input>
+                
                 xin chao anh em 
                 day la JSX, ten toi la {this.state.name}
                 </div>
