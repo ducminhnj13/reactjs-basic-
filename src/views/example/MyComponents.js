@@ -9,6 +9,7 @@ class MyComponent extends React.Component{
         address:'ha noi'
     }
 
+    
     handleOnChangeName = (event) => {
         this.setState({
             name: event.target.value
