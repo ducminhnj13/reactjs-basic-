@@ -4,6 +4,11 @@ class MyComponent extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    arrJobs :[
+        {id:'job1', title:'one1',price:'0990'},
+        {id:'job2', title:'one2',price:'0991'},
+        {id:'job3', title:'one3',price:'0992'}
+    ]
   };
 
   handleChangeFirstName = (event) => {
@@ -52,7 +57,7 @@ class MyComponent extends React.Component {
           />
         </form>
 
-        <Component1 name={"component 1"} age={"22"} />
+        <Component1 name={this.state.firstName} age={"22"} address={'ha noi'} arrJobs={this.state.arrJobs}/>
       </>
     );
   }

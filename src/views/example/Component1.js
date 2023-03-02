@@ -8,11 +8,21 @@ class Component1 extends React.Component {
     // let age = this.props.age;
 
     // cach 2
-    let { name, age } = this.props;
+    let { name, age, address, arrJobs } = this.props;
+    let a = "";
     return (
       <>
-        <div>
-          component1: {name} - {age}
+        <div className="job-lists">
+          {
+            (a = arrJobs.map((item, index) => {
+              return (
+                <div key={item.id}>
+                  {item.title} - {item.price}
+                </div>
+              );
+            }))
+          }
+          {console.log('check map arr',a)}
         </div>
       </>
     );
