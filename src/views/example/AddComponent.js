@@ -1,56 +1,66 @@
-import React from "react";
+import React from 'react';
 
 class AddComponent extends React.Component {
-  state = {
-    titleJob: "",
-    lastName: "",
-  };
-  handleChangeTitleJob = (event) => {
-    this.setState({ titleJob: event.target.value });
-  };
 
-  handleChangePrice = (event) => {
-    this.setState({ lastName: event.target.value });
-  };
+    state = {
+        title: '',
+        salary: '',
+    }
+    handleChangeTitleJob = (event) => {
+        this.setState({
+            title: event.target.value
+        })
+    }
+    handleChangeLastName = (event) => {
+        this.setState({
+            salary: event.target.value
+        })
+    }
 
-  handleSubmit = (event) => {
-    event.preventDefault(event);
-    alert("click me now");
-  };
 
-  render() {
-    return (
-      <form>
-        <label htmlFor="fname">Job title:</label>
-        <br />
-        <input
-          type="text"
-          value={this.state.titleJob}
-          onChange={(event) => {
-            this.handleChangeTitleJob(event);
-          }}
-        />
-        <br />
-        <label htmlFor="lname">Price:</label>
-        <br />
-        <input
-          type="text"
-          value={this.state.lastName}
-          onChange={(event) => {
-            this.handleChangePrice(event);
-          }}
-        />
-        <br />
-        <br />
-        <input
-          type="submit"
-          onClick={(event) => {
-            this.handleSubmit(event);
-          }}
-        />
-      </form>
-    );
-  }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        if (!this.state.title || !this.state.salary) {
+            alert('Missing required params')
+            return;
+        }
+        console.log('>>> check data input: ', this.state)
+        this.props.addNewJob({
+            id: Math.floor(Math.random() * 1001),
+            title: this.state.title,
+            salary: this.state.salary
+        })
+
+        this.setState({
+            title: '',
+            salary: ''
+        })
+    }
+
+    render() {
+        return (
+            <form>
+                <label htmlFor="fname">Job's title:</label><br />
+                <input
+                    type="text"
+                    value={this.state.title}
+                    onChange={(event) => this.handleChangeTitleJob(event)}
+                />
+                <br />
+                <label htmlFor="lname">Salary:</label><br />
+                <input
+                    type="text"
+                    value={this.state.salary}
+                    onChange={(event) => this.handleChangeLastName(event)}
+
+                /><br /><br />
+                <input type="submit"
+                    onClick={(event) => this.handleSubmit(event)}
+                />
+            </form>
+        )
+    }
+
 }
 
 export default AddComponent;

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.scss';
-import MyComponent from './example/MyComponents';
+import MyComponents from './example/MyComponents';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <p>
           hello tat ca cac nguoi anh em thien lanh
         </p>
-        <MyComponent/>  
+        <MyComponents/>  
       </header>
     </div>
   );

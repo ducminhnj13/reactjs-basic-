@@ -1,24 +1,31 @@
 import React from "react";
 import Component1 from "./Component1";
 import AddComponent from "./AddComponent";
-class MyComponent extends React.Component {
+
+class MyComponents extends React.Component {
+  //key:value
   state = {
     arrJobs: [
-      { id: "job1", title: "one1", price: "1000" },
-      { id: "job2", title: "one2", price: "500" },
-      { id: "job3", title: "one3", price: "1500" },
+      { id: "abcJob1", title: "Developers", salary: "500" },
+      { id: "abcJob2", title: "Testers", salary: "400" },
+      { id: "abcJob3", title: "Project managers", salary: "1000" },
     ],
   };
-
+  addNewJob = (job) => {
+    console.log("check job from parent: ", job);
+    this.setState({
+      arrJobs: [...this.state.arrJobs, job],
+    });
+  };
+  //re-render
   render() {
-    console.log('call render',this.state)
+    console.log(">>> call render: ", this.state);
     return (
       <>
-        <AddComponent />
-
-        <Component1 arrJobs={this.state.arrJobs} />
+        <AddComponent addNewJob={this.addNewJob} />
+        <Component1 arrJobs={this.state.arrJobs}/>
       </>
     );
   }
 }
-export default MyComponent;
+export default MyComponents;
