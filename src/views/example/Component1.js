@@ -9,6 +9,12 @@ class Component1 extends React.Component {
   handleShowHide = (status) => {
     this.setState({ showJobs: !this.state.showJobs });
   };
+
+  handleOnclickDetele = (job) => {
+    // console.log(">>> handleOnclickDelete: ", job);
+    this.props.deleteAJob(job);
+  };
+
   render() {
     let { arrJobs } = this.props;
     let { showJobs } = this.state;
@@ -16,27 +22,29 @@ class Component1 extends React.Component {
     console.log("conditional check:", check);
     return (
       <>
-        {showJobs === false ?
-          <div>
-            <button onClick={() => {this.handleShowHide();}}>Show</button>
-          </div>
-        
-        :
-          <>
-            <div className="job-lists">
-              {arrJobs.map((item, index) => {
-                return (
-                  <div key={item.id}>
-                    {item.title} - {item.price}
+          {showJobs === false ?
+              <div>
+                  <button onClick={() => this.handleShowHide()}>Show</button>
+              </div>
+              :
+              <>
+                  <div className="job-lists">
+                      {
+                          arrJobs.map((item, index) => {
+                              return (
+                                  <div key={item.id}>
+                                      {item.title} - {item.salary}
+                                      <></> <span onClick={() => this.handleOnclickDelete(item)}> x </span>
+                                  </div>
+                              )
+                          })
+                      }
                   </div>
-                );
-              })}
-            </div>
-            <div>
-              <button onClick={() => {this.handleShowHide();}}>Hide</button>
-            </div>
-          </>
-        }
+                  <div>
+                      <button onClick={() => this.handleShowHide()}>Hide</button>
+                  </div>
+              </>
+          }
       </>
     );
   }
