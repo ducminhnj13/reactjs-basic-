@@ -3,7 +3,7 @@ import "./App.scss";
 // import MyComponents from './example/MyComponents';
 import ListTodo from "./Todos/ListTodo";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
