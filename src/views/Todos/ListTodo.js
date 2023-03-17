@@ -71,6 +71,8 @@ class ListTodo extends React.Component {
     // let listTodos = this.state.listTodos;
     let isEmptyObj = Object.keys(editTodo).length === 0;
     return (
+      <>
+      <p>ToDo App React</p>
       <div className="list-todo-container">
         <AddTodo addNewTodo={this.addNewTodo} />
         <div className="list-todo-content">
@@ -121,6 +123,7 @@ class ListTodo extends React.Component {
             })}
         </div>
       </div>
+      </>
     );
   }
 }

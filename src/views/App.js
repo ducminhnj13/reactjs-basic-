@@ -1,18 +1,35 @@
 import logo from "./logo.svg";
 import "./App.scss";
-// import MyComponents from './example/MyComponents';
+import MyComponents from './example/MyComponents';
 import ListTodo from "./Todos/ListTodo";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Nav from "./Nav/Nav";
+import Home from "./example/Home";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <header className="App-header">
+        <Nav />
         <img src={logo} className="App-logo" alt="logo" />
-        <p>ToDo App React</p>
-        {/* <MyComponents/>   */}
-        <ListTodo />
+
+        
+        
+        
+        <Switch>
+          <Route path="/" exact>
+          <Home />
+          </Route>
+          <Route path="/todo">
+            <ListTodo />
+          </Route>
+          <Route path="/about">
+            <MyComponents/>  
+          </Route>
+        </Switch>
       </header>
       <ToastContainer
         position="top-right"
@@ -29,6 +46,7 @@ function App() {
       {/* Same as */}
       <ToastContainer />
     </div>
+    </BrowserRouter>
   );
 }
 
