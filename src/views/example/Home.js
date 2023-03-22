@@ -1,8 +1,9 @@
 import React from 'react';
 import { withRouter } from "react-router";
 import Color from '../HOC/Color';
+import logo from '../../assets/images/download.jpg'
 
-class Home extends React.Component {
+class Home extends React.Component { 
     componentDidMount(){
         // setTimeout(() =>
         // {
@@ -12,7 +13,10 @@ class Home extends React.Component {
     render() {
         return(
             <>
-                Hello Home Page
+                <div>Hello Home Page</div>
+                <div>
+                <img src={logo} />
+                </div>
             </>
         )
     }
